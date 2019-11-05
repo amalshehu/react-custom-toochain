@@ -4,14 +4,24 @@
   "description": "Simple react application",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "./node_modules/.bin/babel --watch src --out-dir public",
+    "start": "npm run watch & npx live-server public"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-env": "^7.7.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "@babel/preset-react": "^7.7.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "live-server": "^1.2.1"
   }
 }
