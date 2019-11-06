@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import App from './App.jsx';
 // FYI - Write dev code here...
 
-const { useState } = React;
-console.log('Helo worldxx', useState);
-ReactDOM.render(
-  <div>
-    hello worlds <button>click me</button>
-  </div>,
-  document.getElementById('root')
-);
+// Hot module replacement (HMR)
+if (module.hot) {
+  module.hot.accept();
+}
+ReactDOM.render(<App />, document.getElementById('root'));
