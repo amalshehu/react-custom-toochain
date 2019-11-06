@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 
-// FYI - Write dev code here...
-
-const { useState } = React;
-console.log('Helo world', useState);
-ReactDOM.render(
-  <div>
-    hello worlds <button>click me</button>
-  </div>,
-  document.getElementById('root')
-);
+function App() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>You clicked {count} time</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+export default App;
