@@ -1,23 +1,26 @@
 {
   "name": "space-rep",
   "version": "1.0.0",
-  "description": "Simple react application",
-  "main": "app.js",
+  "description": "Space Repetition",
+  "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "watch": "parcel watch index.html"
+    "start": "node server.js",
+    "dev": "npx parcel index.html --open",
+    "watch": "npx parcel watch index.html",
+    "build": "npx parcel build index.html --no-content-hash --no-source-maps"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
-    "@babel/plugin-proposal-class-properties": "^7.7.0",
     "parcel-bundler": "^1.12.4"
   }
 }
