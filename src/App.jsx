@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css'
+import MarkDown from './MarkDown';
 
 function App() {
   const [cards, setCard] = useState([])
@@ -7,7 +8,8 @@ function App() {
   const [answer, setAnswer] = useState('')
 
   const textarea = {
-      maxWidth: '250px'
+      padding:'20px 100px 20px 100px',
+      margin: '0px'
   } 
 
   const container = {
@@ -27,7 +29,8 @@ function App() {
       const card = {
           id:Date.now(),
           ques: question,
-          ans:  answer
+          ans:  answer,
+          preview: false
       }
       setCard([card, ...cards])
       setAnswer('')
@@ -35,9 +38,10 @@ function App() {
   }
 
   return (
+      <div>
       <form onSubmit={() => handleSubmit(event)}>
           <div className="field" style={container}>
-              <div className="control" style={textarea}>
+              <div className="control">
                    <textarea className="textarea is-danger has-fixed-size"
                     placeholder="Enter the Question"
                     value={question}
@@ -45,10 +49,11 @@ function App() {
                      style ={textarea}
                     ></textarea>
               </div>
-               <div className="control" style={textarea}>
+               <div className="control">
                   <textarea className="textarea is-focused has-fixed-size" 
                    placeholder="Enter the Answer"
                    value={answer} onChange={() => handleAnswer(event) }
+                   style={textarea}
                    ></textarea>
                </div>
           </div>
@@ -56,6 +61,9 @@ function App() {
               <button className="button is-success is-rounded is-center" >Save</button>
           </div>
       </form>
+      
+     <MarkDown props={cards} />
+</div>
   )
 }
 
