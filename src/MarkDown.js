@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import 'bulma/css/bulma.css'
 import showdown from 'showdown'
 
 function MarkDown (props) {
@@ -9,19 +10,15 @@ function MarkDown (props) {
         textAlign: 'center',
         margin: '0 auto'
     }
-
-    const {props:array} = props
-    const lastIndex = array.length-1 
+    const {props:md} = props
     let html
-    if(lastIndex !== -1) {
-        var pre = document.getElementById('#preview')
+    if(md !== '') {
          const converter = new showdown.Converter()
-        const text = array[lastIndex].ques
-         html = converter.makeHtml(text)
+         html = converter.makeHtml(md)
     }
     return (
-        <div style={preview} id='preview'>
-            <h1>preview</h1>
+        <div style={preview} >
+            <h1 class='title is-6 has-background-grey-lighter has-text-grey'>preview</h1>
             {html}
         </div>
     )

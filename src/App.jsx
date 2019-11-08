@@ -6,6 +6,7 @@ function App() {
   const [cards, setCard] = useState([])
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
+  const [markDown, setMark] = useState('')
 
   const textarea = {
       padding:'20px 100px 20px 100px',
@@ -29,10 +30,10 @@ function App() {
       const card = {
           id:Date.now(),
           ques: question,
-          ans:  answer,
-          preview: false
+          ans:  answer
       }
       setCard([card, ...cards])
+      setMark(card.ques)
       setAnswer('')
       setQuestion('')
   }
@@ -61,19 +62,9 @@ function App() {
               <button className="button is-success is-rounded is-center" >Save</button>
           </div>
       </form>
-      
-     <MarkDown props={cards} />
+     <MarkDown props={markDown} />
 </div>
   )
 }
 
-// function App() {
-//   const [count, setCount] = useState(0);
-//   return (
-//     <div>
-//       <p>You clicked {count} time</p>
-//       <button onClick={() => setCount(count + 1)}>Click me</button>
-//     </div>
-//   );
-// }
 export default App;
