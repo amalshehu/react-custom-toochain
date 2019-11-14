@@ -5,32 +5,24 @@ import showdown from 'showdown'
 import ContentEditable from 'react-contenteditable'
 import 'regenerator-runtime/runtime'
 
-function App () {
+function Cards () {
   const [cards, setCard] = useState([])
   const [question, setQuestion] = useState()
   const [answer, setAnswer] = useState('')
-  // const contentEditable = React.createRef()
-
-  // const textarea = {
-  //   padding: '20px 100px 20px 100px',
-  //   margin: '0px'
-  // }
 
   const handleQuestion = e => {
-  //  console.log('onChange Event')
     setQuestion(e.target.innerText)
   }
 
   const handleAnswer = e => setAnswer(e.target.innerText)
 
-  useEffect(() => {
-    async function getCards () {
-      const response = await fetch('http://localhost:3000/card')
-      const data = await response.json()
-      console.log(data)
-    }
-    getCards()
-  }, [])
+  // useEffect(() => {
+  //   async function getCards () {
+  //     const response = await fetch('http://localhost:3000/cards')
+  //     const data = await response.json()
+  //   }
+  //   getCards()
+  // }, [])
 
   async function addToDb (url, data) {
     const response = await fetch(url, {
@@ -51,16 +43,13 @@ function App () {
     }
     addToDb('http://localhost:3000/card', card)
     setCard([card, ...cards])
-    // setMark(card.ques)
     setAnswer('')
     setQuestion('')
   }
 
   function handleMarkUpQues () {
-  //  console.log('Question', question)
     const converter = new showdown.Converter()
     const html = converter.makeHtml(question)
-    // console.log(html)
     return html
   }
 
@@ -76,19 +65,15 @@ function App () {
         <div className='field'>
           <ContentEditable
             html={handleMarkUpQues()}
-            // innerRef={contentEditable}
-            // innerHTML of the editable div
-            disabled={false} // use true to disable editing
+            disabled={false}
             onKeyUp={e => handleQuestion(e)}
             className='question'
             data-placeholder='Enter the Question'
           />
 
           <ContentEditable
-            // innerRef={contentEditable}
-            // innerHTML of the editable div
             html={handleMarkUpAns()}
-            disabled={false} // use true to disable editing
+            disabled={false}
             onKeyUp={e => handleAnswer(e)}
             className='answer'
             data-placeholder='Enter the Answer'
@@ -102,4 +87,4 @@ function App () {
   )
 }
 
-export default App
+export default Cards

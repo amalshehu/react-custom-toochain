@@ -10,7 +10,7 @@ app.use(function (req, res, next) {
     next()
   })
   
-app.get('/card', db.getCard)  
+app.get('/cards', db.getCard)  
 app.post('/card', db.addCard)
 
 app.listen(port, () => console.log(`App running on the port ${port}`))
