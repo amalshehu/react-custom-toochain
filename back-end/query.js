@@ -7,7 +7,7 @@ const pool = new Pool({
   port: 5432
 })
 
-const getCard = (req,res) => {
+const getCards = (req,res) => {
   pool.query('SELECT * FROM cards ORDER BY id ASC', (error, result) => {
     if (error) console.log("Error while tetching data")
     res.json(result.rows)
@@ -16,8 +16,8 @@ const getCard = (req,res) => {
 }
 
 const addCard = (req, res) => {
-    const { question, answer } = req.body
-    pool.query('INSERT INTO cards (question, answer) VALUES ($1,$2) RETURNING id', [ question, answer ], (error, result) => {
+    const { deck,question, answer } = req.body
+    pool.query('INSERT INTO cards (deck, question, answer) VALUES ($1,$2,$3) RETURNING id', [deck, question, answer ], (error, result) => {
       if (error) console.log('Error while adding card')
       res.send(result.rows)
     })
@@ -25,5 +25,5 @@ const addCard = (req, res) => {
 
   module.exports = {
       addCard,
-      getCard
+      getCards
   }

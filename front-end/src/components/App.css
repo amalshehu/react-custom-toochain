@@ -7,6 +7,7 @@
     border: 1px solid black;
     padding: 10px 40px 60px 10px;
     width: 300px;
+    font-size: 15px;
 }
 
 .field {
@@ -33,11 +34,22 @@
     padding: 0px 10px 0px 20px;
 }
 .logo {
-    height: 30px;
-    width: 70px;
+    height: 40px;
+    width: auto;
     border-radius: 50%; 
 }
 .decks {
     margin-top: 10px;
     text-align: center;
+}
+
+.study-btn {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.input-tag {
+    border: 1px solid black;
+    padding: 10px 40px 10px 10px;
+    width: 300px;
+    font-size: 15px;
 }
