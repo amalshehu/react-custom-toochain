@@ -32,6 +32,7 @@
 .navbar {
     background-color: rgb(212, 202, 202);
     padding: 0px 10px 0px 20px;
+    margin-bottom: 40px;
 }
 .logo {
     height: 40px;
@@ -52,4 +53,37 @@
     padding: 10px 40px 10px 10px;
     width: 300px;
     font-size: 15px;
+}
+
+.study-box {
+    border: 1px solid black;
+    width: 500px;
+    margin:30px auto;
+    padding: 10px;
+}
+
+.deck-name {
+    font-size: 20px;
+    color: green;
+    padding: 10px;
+}
+
+.study-table {
+    margin:0px auto 20px auto;
+}
+.study-table td {
+    padding: 10px;
+    text-align: center;
+}
+.study-btn {
+    margin-top:200px;
+    font-size: 15px;
+}
+
+.answer-btns {
+    margin-top: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    justify-content: center;
 }

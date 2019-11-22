@@ -12,7 +12,7 @@ function Cards () {
   const [deck, setDeck] = useState('')
 
   const handleDeck = e => {
-    return setDeck(e.target.value)
+    return setDeck(e.target.value.trim())
   }
 
   const handleQuestion = e => {
@@ -37,7 +37,7 @@ function Cards () {
         'Content-Type': 'application/json'
       }
     })
-    await response.json()
+    // await response.json()
   }
 
   const handleSubmit = e => {
@@ -48,7 +48,7 @@ function Cards () {
       answer: answer
     }
     addToDb('http://localhost:3000/card', card)
-    setCards(card, ...cards)
+    setCards([card, ...cards])
     setAnswer('')
     setQuestion('')
     setDeck('')
